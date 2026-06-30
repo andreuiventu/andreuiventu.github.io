@@ -12,6 +12,7 @@
   <meta property="og:description" content="27 d'agost · Can Cugulada. Veniu a celebrar-ho amb nosaltres." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ca_ES" />
+  <meta property="og:image" content="https://silviamoga0.github.io/fake_wedding_sekta/assets/img/parella.jpg" />
 
   <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='80' font-family='serif'&gt;💍&lt;/text&gt;&lt;/svg&gt;" />
 
@@ -159,6 +160,9 @@
     <div class="container">
       <p class="section__kicker reveal">Els protagonistes</p>
       <h2 class="section__title reveal">Els nuvis</h2>
+      <figure class="couple__photo reveal" style="--d:.1s">
+        <img src="assets/img/parella.jpg" width="1000" height="800" alt="Andreu i Ventu, retrat en aquarel·la" loading="lazy" />
+      </figure>
       <div class="couple__grid">
         <article class="couple__card card reveal">
           <div class="couple__portrait" aria-hidden="true">
@@ -244,6 +248,10 @@
     <div class="container">
       <p class="section__kicker reveal">On serà tot</p>
       <h2 class="section__title reveal">El lloc · Can Cugulada</h2>
+      <figure class="venue__photo reveal" style="--d:.1s">
+        <img src="assets/img/can-cugulada.jpg" width="1500" height="856" alt="Can Cugulada, aquarel·la del paisatge" loading="lazy" />
+        <figcaption>Can Cugulada, entre boscos i camps</figcaption>
+      </figure>
       <div class="venue__grid">
         <div class="venue__text reveal">
           <p>Una masia mediterrània envoltada de natura, oliveres i pedra antiga. El marc perfecte per a un dia inoblidable, amb racons preciosos esperant les vostres millors fotos.</p>
@@ -423,7 +431,7 @@
 
       <!-- ---------- WORDLE ---------- -->
       <div class="game-panel card reveal" id="panel-wordle" hidden>
-        <p class="game__hint">Endevina la paraula secreta de 8 lletres (és el lloc del casament!). Tens 6 intents. <span style="color:var(--sage)">Verd</span> = lletra correcta, <span style="color:#b79a5e">daurat</span> = hi és però en un altre lloc.</p>
+        <p class="game__hint">Endevina la paraula secreta de 8 lletres. Tens 6 intents. <span style="color:var(--sage)">Verd</span> = lletra correcta, <span style="color:#b79a5e">daurat</span> = hi és però en un altre lloc.</p>
         <div class="wd" id="wdBoard"></div>
         <div class="wd__msg" id="wdMsg">&nbsp;</div>
         <div class="wd__keyboard" id="wdKeyboard"></div>
@@ -507,8 +515,18 @@
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
-  <!-- música de fons (Los Chikos del Maíz — La Vida Sense Tu) via YouTube; sona en clicar el botó -->
-  <div id="ytPlayer" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;overflow:hidden"></div>
+  <!-- mini reproductor (Los Chikos del Maíz — La Vida Sense Tu); apareix en clicar el botó de música -->
+  <aside class="nowplaying" id="nowPlaying" aria-hidden="true">
+    <div class="nowplaying__video"><div id="ytPlayer"></div></div>
+    <div class="nowplaying__info">
+      <span class="nowplaying__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div class="nowplaying__meta">
+        <strong>La Vida Sense Tu</strong>
+        <span>Los Chikos del Maíz</span>
+      </div>
+      <button class="nowplaying__close" id="npClose" type="button" aria-label="Atura la música">✕</button>
+    </div>
+  </aside>
 
   <script src="assets/js/script.js"></script>
   <script src="assets/js/paraulogic-data.js"></script>

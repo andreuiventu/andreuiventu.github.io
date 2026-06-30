@@ -244,8 +244,8 @@
      BACKGROUND MUSIC — Los Chikos del Maíz, "La Vida Sense Tu" (YouTube)
      ===================================================================== */
   (function music() {
-    const btn = $("#musicToggle");
-    if (!btn) return;
+    const btn = $("#musicToggle"), widget = $("#nowPlaying"), close = $("#npClose");
+    if (!btn || !widget) return;
     const VIDEO_ID = "Ug8_GdUUjug"; // ← per canviar la cançó, posa aquí l'ID del vídeo de YouTube
     let player = null, ready = false, wantPlay = false;
 
@@ -254,27 +254,34 @@
     tag.src = "https://www.youtube.com/iframe_api";
     document.head.appendChild(tag);
 
+    function showWidget(on) { widget.classList.toggle("is-visible", on); widget.setAttribute("aria-hidden", on ? "false" : "true"); }
+
     window.onYouTubeIframeAPIReady = function () {
+      // a real, visible, sized player is required — YouTube won't play in a 0×0 / hidden iframe
       player = new YT.Player("ytPlayer", {
-        videoId: VIDEO_ID,
+        width: "260", height: "146", videoId: VIDEO_ID,
         playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: VIDEO_ID, playsinline: 1, modestbranding: 1, rel: 0 },
         events: {
-          onReady: () => { ready = true; try { player.setVolume(55); } catch (e) {} if (wantPlay) player.playVideo(); },
+          onReady: () => { ready = true; try { player.setVolume(60); } catch (e) {} if (wantPlay) { showWidget(true); player.playVideo(); } },
           onStateChange: (e) => {
             const playing = e.data === YT.PlayerState.PLAYING;
             btn.classList.toggle("is-playing", playing);
             btn.title = playing ? "Atura la música" : "Música de fons";
-          }
+            if (playing) showWidget(true);
+          },
+          onError: () => { btn.title = "No s'ha pogut reproduir la música"; }
         }
       });
     };
 
+    function play() { if (ready && player) { showWidget(true); player.playVideo(); } else { wantPlay = true; btn.classList.add("is-playing"); } }
+    function pause() { if (ready && player) player.pauseVideo(); showWidget(false); btn.classList.remove("is-playing"); }
+
     btn.addEventListener("click", () => {
-      if (!ready || !player) { wantPlay = true; btn.classList.add("is-playing"); return; }
-      const st = player.getPlayerState();
-      if (st === YT.PlayerState.PLAYING) player.pauseVideo();
-      else player.playVideo();
+      const playing = ready && player && player.getPlayerState() === YT.PlayerState.PLAYING;
+      playing ? pause() : play();
     });
+    if (close) close.addEventListener("click", pause);
   })();
 
   /* =====================================================================
