@@ -505,7 +505,7 @@ section[hidden]{display:none!important}
    ===================================================================== */
 
 /* desktop: vertical side menu (editorial sidebar) */
-@media (min-width:981px){
+@media (min-width:900px){
   body{padding-left:210px}
   .nav,.nav.is-scrolled{
     flex-direction:column;align-items:stretch;justify-content:flex-start;
@@ -523,7 +523,7 @@ section[hidden]{display:none!important}
   .hero__botanic--tl{top:36px}
 }
 
-@media (max-width:880px){
+@media (max-width:899px){
   .nav__links{
     position:fixed;inset:0 0 0 auto;width:min(80vw,320px);height:100vh;
     flex-direction:column;justify-content:center;gap:1.6rem;

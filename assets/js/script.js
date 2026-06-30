@@ -303,44 +303,36 @@
      BACKGROUND MUSIC — Los Chikos del Maíz, "La Vida Sense Tu" (YouTube)
      ===================================================================== */
   (function music() {
-    const btn = $("#musicToggle"), widget = $("#nowPlaying"), close = $("#npClose");
-    if (!btn || !widget) return;
+    const btn = $("#musicToggle"), widget = $("#nowPlaying"), close = $("#npClose"), holder = $("#ytPlayer");
+    if (!btn || !widget || !holder) return;
     const VIDEO_ID = "Ug8_GdUUjug"; // ← per canviar la cançó, posa aquí l'ID del vídeo de YouTube
-    let player = null, ready = false, wantPlay = false;
+    let playing = false, iframe = null;
 
-    // load the YouTube IFrame API
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
+    // Reliable approach: set the iframe src with autoplay=1 *in response to the click*
+    // (the user gesture authorises playback with sound — no API timing issues).
+    function start() {
+      if (!iframe) {
+        iframe = document.createElement("iframe");
+        iframe.setAttribute("allow", "autoplay; encrypted-media");
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("title", "La Vida Sense Tu — Los Chikos del Maíz");
+        holder.appendChild(iframe);
+      }
+      iframe.src = "https://www.youtube.com/embed/" + VIDEO_ID +
+        "?autoplay=1&loop=1&playlist=" + VIDEO_ID + "&controls=0&modestbranding=1&rel=0&playsinline=1";
+      playing = true;
+      widget.classList.add("is-visible"); widget.setAttribute("aria-hidden", "false");
+      btn.classList.add("is-playing"); btn.title = "Atura la música";
+    }
+    function stop() {
+      if (iframe) iframe.src = "about:blank"; // stops the audio
+      playing = false;
+      widget.classList.remove("is-visible"); widget.setAttribute("aria-hidden", "true");
+      btn.classList.remove("is-playing"); btn.title = "Música de fons";
+    }
 
-    function showWidget(on) { widget.classList.toggle("is-visible", on); widget.setAttribute("aria-hidden", on ? "false" : "true"); }
-
-    window.onYouTubeIframeAPIReady = function () {
-      // a real, visible, sized player is required — YouTube won't play in a 0×0 / hidden iframe
-      player = new YT.Player("ytPlayer", {
-        width: "260", height: "146", videoId: VIDEO_ID,
-        playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: VIDEO_ID, playsinline: 1, modestbranding: 1, rel: 0 },
-        events: {
-          onReady: () => { ready = true; try { player.setVolume(60); } catch (e) {} if (wantPlay) { showWidget(true); player.playVideo(); } },
-          onStateChange: (e) => {
-            const playing = e.data === YT.PlayerState.PLAYING;
-            btn.classList.toggle("is-playing", playing);
-            btn.title = playing ? "Atura la música" : "Música de fons";
-            if (playing) showWidget(true);
-          },
-          onError: () => { btn.title = "No s'ha pogut reproduir la música"; }
-        }
-      });
-    };
-
-    function play() { if (ready && player) { showWidget(true); player.playVideo(); } else { wantPlay = true; btn.classList.add("is-playing"); } }
-    function pause() { if (ready && player) player.pauseVideo(); showWidget(false); btn.classList.remove("is-playing"); }
-
-    btn.addEventListener("click", () => {
-      const playing = ready && player && player.getPlayerState() === YT.PlayerState.PLAYING;
-      playing ? pause() : play();
-    });
-    if (close) close.addEventListener("click", pause);
+    btn.addEventListener("click", () => { playing ? stop() : start(); });
+    if (close) close.addEventListener("click", stop);
   })();
 
   /* =====================================================================
