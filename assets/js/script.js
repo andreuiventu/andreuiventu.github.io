@@ -176,10 +176,15 @@
       history.replaceState(null, "", "#" + id);
     });
 
-    // initial view from hash
+    // initial view from hash (accepts a section id OR a view name)
     const initId = location.hash.slice(1);
-    const initView = initId ? viewOf(initId) : "inici";
-    show(initView || "inici", initId && !document.getElementById(initId)?.matches("section[data-view]") ? initId : null);
+    let initView = "inici", scrollId = null;
+    if (initId) {
+      const el = document.getElementById(initId);
+      if (el) { initView = viewOf(initId) || "inici"; if (!el.matches("section[data-view]")) scrollId = initId; }
+      else if (VIEWS.includes(initId)) { initView = initId; }
+    }
+    show(initView, scrollId);
   })();
 
   /* =====================================================================
