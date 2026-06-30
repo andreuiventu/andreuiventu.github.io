@@ -129,6 +129,60 @@
   })();
 
   /* =====================================================================
+     VIEW ROUTER — splits the long page into navigable "chapters"
+     ===================================================================== */
+  (function router() {
+    const sections = $$("section[data-view]");
+    if (!sections.length) return;
+    const navAs = $$("#navLinks a[data-view]");
+    const VIEWS = [...new Set(sections.map(s => s.dataset.view))];
+    const nav = $("#nav");
+
+    const viewOf = (id) => {
+      const el = document.getElementById(id);
+      const sec = el && el.closest("section[data-view]");
+      return sec ? sec.dataset.view : (id === "hero" || id === "inici" ? "inici" : null);
+    };
+
+    function show(view, scrollId) {
+      if (!VIEWS.includes(view)) view = VIEWS[0];
+      sections.forEach(s => {
+        const on = s.dataset.view === view;
+        s.hidden = !on;
+        if (on) s.querySelectorAll(".reveal").forEach(el => el.classList.add("is-in"));
+      });
+      navAs.forEach(a => a.classList.toggle("is-active", a.dataset.view === view));
+      requestAnimationFrame(() => {
+        const target = scrollId && document.getElementById(scrollId);
+        if (target && !target.matches("section[data-view]")) {
+          const y = target.getBoundingClientRect().top + window.scrollY - 78;
+          window.scrollTo({ top: y, behavior: reduceMotion ? "auto" : "smooth" });
+        } else {
+          window.scrollTo({ top: 0, behavior: "auto" });
+        }
+      });
+    }
+    window.AVshowView = show;
+
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute("href").slice(1);
+      if (!id) return;
+      const view = a.hasAttribute("data-view") ? a.dataset.view : viewOf(id);
+      if (!view) return;
+      e.preventDefault();
+      show(view, a.hasAttribute("data-view") ? null : id);
+      history.replaceState(null, "", "#" + id);
+    });
+
+    // initial view from hash
+    const initId = location.hash.slice(1);
+    const initView = initId ? viewOf(initId) : "inici";
+    show(initView || "inici", initId && !document.getElementById(initId)?.matches("section[data-view]") ? initId : null);
+  })();
+
+  /* =====================================================================
      MAPS + IBAN
      ===================================================================== */
   (function venue() {

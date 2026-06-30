@@ -64,6 +64,22 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;color:var(--f
 
 .section{padding:clamp(64px,9vw,128px) 0;position:relative}
 .section--tint{background:linear-gradient(var(--offwhite),#f3f0ea)}
+
+/* view router: one chapter at a time, soft fade between */
+section[data-view]{animation:viewIn .55s var(--ease)}
+section[hidden]{display:none!important}
+@keyframes viewIn{from{opacity:0}to{opacity:1}}
+
+/* blurred watercolor backgrounds for atmosphere */
+.couple,.venue{overflow:hidden}
+.couple::before,.venue::before{
+  content:"";position:absolute;inset:-30px;z-index:0;
+  background-size:cover;background-position:center;
+  filter:blur(22px) saturate(1.05);opacity:.22;transform:scale(1.06);
+}
+.couple::before{background-image:url("../img/parella.jpg")}
+.venue::before{background-image:url("../img/can-cugulada.jpg")}
+.couple>.container,.venue>.container{position:relative;z-index:1}
 .section__kicker{
   font-family:var(--body);text-transform:uppercase;letter-spacing:.34em;
   font-size:.72rem;color:var(--olive);text-align:center;margin-bottom:.8rem;
@@ -133,6 +149,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;color:var(--f
 .nav__links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--sage);transition:width .4s var(--ease)}
 .nav__links a:hover{color:var(--forest)}
 .nav__links a:hover::after{width:100%}
+.nav__links a.is-active{color:var(--forest)}
+.nav__links a.is-active::after{width:100%}
 .nav__actions{display:flex;align-items:center;gap:.6rem}
 .music-toggle{
   width:42px;height:42px;border-radius:50%;border:1px solid var(--olive);
@@ -336,6 +354,27 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;color:var(--f
 .to-top:hover{background:var(--sage);color:var(--ivory);border-color:var(--sage)}
 
 /* =====================================================================
+   FLOATING HEART PHOTO — drifts around the screen
+   ===================================================================== */
+.float-heart{
+  position:fixed;top:0;left:0;width:94px;height:87px;z-index:30;pointer-events:none;
+  filter:drop-shadow(0 10px 20px rgba(78,90,73,.4));
+  animation:heartRoam 34s ease-in-out infinite;
+}
+.float-heart__svg{width:100%;height:100%;display:block;animation:heartSpin 8s ease-in-out infinite}
+@keyframes heartSpin{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+@keyframes heartRoam{
+  0%   {transform:translate(7vw,74vh)}
+  18%  {transform:translate(80vw,70vh)}
+  36%  {transform:translate(84vw,16vh)}
+  54%  {transform:translate(46vw,44vh)}
+  72%  {transform:translate(10vw,20vh)}
+  90%  {transform:translate(30vw,78vh)}
+  100% {transform:translate(7vw,74vh)}
+}
+@media (max-width:560px){.float-heart{width:64px;height:60px}}
+
+/* =====================================================================
    NOW PLAYING widget
    ===================================================================== */
 .nowplaying{
@@ -499,4 +538,5 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;color:var(--f
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
   .preloader{display:none}
+  .float-heart{display:none}
 }

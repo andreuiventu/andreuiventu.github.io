@@ -37,21 +37,29 @@
   <!-- ===================== PETALS LAYER ===================== -->
   <div class="petals" id="petals" aria-hidden="true"></div>
 
+  <!-- ===================== FLOATING HEART PHOTO ===================== -->
+  <div class="float-heart" id="floatHeart" aria-hidden="true" title="Andreu &amp; Ventu">
+    <svg viewBox="0 0 32 29.6" class="float-heart__svg">
+      <defs>
+        <clipPath id="heartClip">
+          <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+        </clipPath>
+      </defs>
+      <image href="assets/img/peto.jpg" width="32" height="29.6" preserveAspectRatio="xMidYMid slice" clip-path="url(#heartClip)"/>
+      <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" fill="none" stroke="#FAF8F4" stroke-width="1.1"/>
+    </svg>
+  </div>
+
   <!-- ===================== NAVBAR ===================== -->
   <header class="nav" id="nav">
     <a href="#hero" class="nav__brand">A<span>&amp;</span>V</a>
     <nav class="nav__links" id="navLinks">
-      <a href="#compte-enrere">Compte enrere</a>
-      <a href="#invitacio">La invitació</a>
-      <a href="#nuvis">Els nuvis</a>
-      <a href="#dia">El gran dia</a>
-      <a href="#lloc">El lloc</a>
-      <a href="#vestimenta">Vestimenta</a>
-      <a href="#rsvp">Confirmació</a>
-      <a href="#musica">Música</a>
-      <a href="#regals">Regals</a>
-      <a href="#jocs">Jocs</a>
-      <a href="#faq">Dubtes</a>
+      <a href="#inici" data-view="inici">Inici</a>
+      <a href="#nuvis" data-view="nuvis">Els nuvis</a>
+      <a href="#dia" data-view="dia">El gran dia</a>
+      <a href="#lloc" data-view="lloc">El lloc</a>
+      <a href="#detalls" data-view="detalls">Detalls</a>
+      <a href="#jocs" data-view="jocs">Jocs</a>
     </nav>
     <div class="nav__actions">
       <button class="music-toggle" id="musicToggle" aria-label="Activa la música" title="Música ambiental">
@@ -62,7 +70,7 @@
   </header>
 
   <!-- ===================== HERO ===================== -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" data-view="inici">
     <div class="hero__bg" aria-hidden="true"></div>
 
     <!-- watercolor botanical corners -->
@@ -111,7 +119,7 @@
   </section>
 
   <!-- ===================== COUNTDOWN ===================== -->
-  <section class="countdown section" id="compte-enrere">
+  <section class="countdown section" id="compte-enrere" data-view="inici">
     <div class="container">
       <p class="section__kicker reveal">El moment s'acosta</p>
       <h2 class="section__title reveal">Compte enrere</h2>
@@ -129,7 +137,7 @@
   </section>
 
   <!-- ===================== INVITATION ===================== -->
-  <section class="invite section" id="invitacio">
+  <section class="invite section" id="invitacio" data-view="inici">
     <div class="container container--narrow">
       <svg class="invite__sprig reveal" viewBox="0 0 120 40" aria-hidden="true">
         <g fill="none" stroke="var(--olive)" stroke-width="1" stroke-linecap="round">
@@ -156,7 +164,7 @@
   </section>
 
   <!-- ===================== THE COUPLE ===================== -->
-  <section class="couple section section--tint" id="nuvis">
+  <section class="couple section section--tint" id="nuvis" data-view="nuvis">
     <div class="container">
       <p class="section__kicker reveal">Els protagonistes</p>
       <h2 class="section__title reveal">Els nuvis</h2>
@@ -192,7 +200,7 @@
   </section>
 
   <!-- ===================== THE BIG DAY (TIMELINE) ===================== -->
-  <section class="timeline section" id="dia">
+  <section class="timeline section" id="dia" data-view="dia">
     <div class="container">
       <p class="section__kicker reveal">Hora a hora</p>
       <h2 class="section__title reveal">El gran dia</h2>
@@ -244,7 +252,7 @@
   </section>
 
   <!-- ===================== VENUE ===================== -->
-  <section class="venue section section--tint" id="lloc">
+  <section class="venue section section--tint" id="lloc" data-view="lloc">
     <div class="container">
       <p class="section__kicker reveal">On serà tot</p>
       <h2 class="section__title reveal">El lloc · Can Cugulada</h2>
@@ -281,7 +289,7 @@
   </section>
 
   <!-- ===================== DRESS CODE ===================== -->
-  <section class="dress section" id="vestimenta">
+  <section class="dress section" id="vestimenta" data-view="dia">
     <div class="container container--narrow">
       <p class="section__kicker reveal">Per anar guapíssims</p>
       <h2 class="section__title reveal">Codi de vestimenta</h2>
@@ -297,7 +305,7 @@
   </section>
 
   <!-- ===================== RSVP ===================== -->
-  <section class="rsvp section section--tint" id="rsvp">
+  <section class="rsvp section section--tint" id="rsvp" data-view="detalls">
     <div class="container container--narrow">
       <p class="section__kicker reveal">Us esperem!</p>
       <h2 class="section__title reveal">Confirma la teva assistència</h2>
@@ -354,7 +362,7 @@
   </section>
 
   <!-- ===================== MUSIC ===================== -->
-  <section class="music section" id="musica">
+  <section class="music section" id="musica" data-view="detalls">
     <div class="container container--narrow">
       <p class="section__kicker reveal">La banda sonora</p>
       <h2 class="section__title reveal">Música per a la festa</h2>
@@ -372,7 +380,7 @@
   </section>
 
   <!-- ===================== GIFTS ===================== -->
-  <section class="gifts section section--tint" id="regals">
+  <section class="gifts section section--tint" id="regals" data-view="detalls">
     <div class="container container--narrow">
       <p class="section__kicker reveal">El detall</p>
       <h2 class="section__title reveal">Llista de noces</h2>
@@ -387,7 +395,7 @@
   </section>
 
   <!-- ===================== GAMES ===================== -->
-  <section class="games section" id="jocs">
+  <section class="games section" id="jocs" data-view="jocs">
     <div class="container">
       <p class="section__kicker reveal">Mentre esperem el gran dia</p>
       <h2 class="section__title reveal">Minijocs</h2>
@@ -441,7 +449,7 @@
   </section>
 
   <!-- ===================== FAQ ===================== -->
-  <section class="faq section" id="faq">
+  <section class="faq section" id="faq" data-view="detalls">
     <div class="container container--narrow">
       <p class="section__kicker reveal">Tot el que necessites saber</p>
       <h2 class="section__title reveal">Preguntes freqüents</h2>
@@ -475,7 +483,7 @@
   </section>
 
   <!-- ===================== GUESTBOOK ===================== -->
-  <section class="guestbook section section--tint" id="llibre">
+  <section class="guestbook section section--tint" id="llibre" data-view="detalls">
     <div class="container container--narrow">
       <p class="section__kicker reveal">Deixa la teva empremta</p>
       <h2 class="section__title reveal">Llibre de visites</h2>
@@ -490,7 +498,7 @@
   </section>
 
   <!-- ===================== CLOSING ===================== -->
-  <section class="closing section">
+  <section class="closing section" data-view="inici">
     <div class="container container--narrow">
       <svg class="closing__rings reveal" viewBox="0 0 90 60" aria-hidden="true">
         <circle cx="35" cy="32" r="18" fill="none" stroke="var(--forest)" stroke-width="1.3"/>

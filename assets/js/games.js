@@ -136,7 +136,8 @@
 
     // keyboard support
     document.addEventListener("keydown", (e) => {
-      if ($("#panel-paraulogic").hidden) return;
+      const jocs = document.getElementById("jocs");
+      if ((jocs && jocs.hidden) || $("#panel-paraulogic").hidden) return;
       const tag = document.activeElement && document.activeElement.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA") return;
       const allowed = new Set([CENTER, ...hiveLetters]);
@@ -258,7 +259,8 @@
     }
 
     document.addEventListener("keydown", (e) => {
-      if ($("#panel-wordle").hidden) return;
+      const jocs = document.getElementById("jocs");
+      if ((jocs && jocs.hidden) || $("#panel-wordle").hidden) return;
       const tag = document.activeElement && document.activeElement.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA") return;
       if (e.key === "Enter") handle("enter");
