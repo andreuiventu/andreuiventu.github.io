@@ -49,6 +49,7 @@
       <a href="#rsvp">Confirmació</a>
       <a href="#musica">Música</a>
       <a href="#regals">Regals</a>
+      <a href="#jocs">Jocs</a>
       <a href="#faq">Dubtes</a>
     </nav>
     <div class="nav__actions">
@@ -370,6 +371,60 @@
     </div>
   </section>
 
+  <!-- ===================== GAMES ===================== -->
+  <section class="games section" id="jocs">
+    <div class="container">
+      <p class="section__kicker reveal">Mentre esperem el gran dia</p>
+      <h2 class="section__title reveal">Minijocs</h2>
+      <p class="section__intro reveal" style="--d:.1s">Una mica de joc per anar fent boca. Quanta traça hi teniu?</p>
+
+      <div class="games__tabs reveal" style="--d:.15s" role="tablist">
+        <button class="games__tab is-active" data-game="paraulogic" role="tab">Paraulògic</button>
+        <button class="games__tab" data-game="wordle" role="tab">Endevina la paraula</button>
+      </div>
+
+      <!-- ---------- PARAULÒGIC ---------- -->
+      <div class="game-panel card reveal" id="panel-paraulogic" style="--d:.2s">
+        <p class="game__hint">Forma paraules de 3 lletres o més. Han de contenir la lletra central. Pots repetir lletres. La paraula amagada és… <strong>CASAMENT</strong>!</p>
+
+        <div class="pl">
+          <div class="pl__side">
+            <div class="pl__display" id="plDisplay" aria-live="polite"></div>
+            <div class="pl__msg" id="plMsg">&nbsp;</div>
+            <div class="pl__hive" id="plHive" aria-label="Rusc de lletres"></div>
+            <div class="pl__controls">
+              <button type="button" class="btn btn--ghost" id="plDelete">Esborra</button>
+              <button type="button" class="btn btn--ghost" id="plShuffle">Remena</button>
+              <button type="button" class="btn" id="plEnter">Envia</button>
+            </div>
+          </div>
+          <div class="pl__side">
+            <div class="pl__scoreboard">
+              <div class="pl__rank" id="plRank">Principiant</div>
+              <div class="pl__bar"><span id="plBar"></span></div>
+              <div class="pl__stats">
+                <span><strong id="plFound">0</strong> paraules</span>
+                <span><strong id="plPoints">0</strong> punts</span>
+                <span><strong id="plPangrams">0</strong> panagrames</span>
+              </div>
+            </div>
+            <ul class="pl__words" id="plWords"></ul>
+            <button type="button" class="pl__giveup" id="plGiveup">Em rendeixo · veure resultats</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- WORDLE ---------- -->
+      <div class="game-panel card reveal" id="panel-wordle" hidden>
+        <p class="game__hint">Endevina la paraula secreta de 8 lletres (és el lloc del casament!). Tens 6 intents. <span style="color:var(--sage)">Verd</span> = lletra correcta, <span style="color:#b79a5e">daurat</span> = hi és però en un altre lloc.</p>
+        <div class="wd" id="wdBoard"></div>
+        <div class="wd__msg" id="wdMsg">&nbsp;</div>
+        <div class="wd__keyboard" id="wdKeyboard"></div>
+        <button type="button" class="btn btn--ghost wd__reset" id="wdReset" hidden>Torna a jugar</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== FAQ ===================== -->
   <section class="faq section" id="faq">
     <div class="container container--narrow">
@@ -451,5 +506,7 @@
   </audio>
 
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/paraulogic-data.js"></script>
+  <script src="assets/js/games.js"></script>
 </body>
 </html>

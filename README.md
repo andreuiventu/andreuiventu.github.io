@@ -15,6 +15,7 @@ Una pàgina web de casament *over-the-top*, en català, amb estètica **mediterr
 - Formulari de confirmació (RSVP) que obre el correu amb totes les respostes
 - Llista de reproducció (Spotify) i petició de cançons
 - Llista de noces amb IBAN i botó de copiar
+- **Minijocs**: Paraulògic (paraula amagada «CASAMENT», amb diccionari català real) i un Wordle on la paraula secreta és «CUGULADA»
 - Preguntes freqüents (acordió)
 - Llibre de visites (es guarda al navegador)
 - Música ambiental, confeti, codi Konami i altres detalls 🎉

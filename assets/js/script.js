@@ -311,6 +311,9 @@
     else { cancelAnimationFrame(confettiRAF); confettiRAF = null; confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height); }
   }
 
+  // expose for the games module
+  window.AVconfetti = launchConfetti;
+
   // footer easter-egg button
   const egg = $("#confettiBtn");
   if (egg) egg.addEventListener("click", () => launchConfetti(1600));
