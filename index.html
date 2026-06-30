@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andreu &amp; Ventu · 27 d'agost · Can Cugulada</title>
+  <meta name="description" content="Ens casem! Andreu i Ventu us conviden al seu casament el 27 d'agost a Can Cugulada. Confirmeu la vostra assistència." />
+  <meta name="theme-color" content="#FAF8F4" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Andreu & Ventu · Ens casem!" />
+  <meta property="og:description" content="27 d'agost · Can Cugulada. Veniu a celebrar-ho amb nosaltres." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ca_ES" />
+
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='80' font-family='serif'&gt;💍&lt;/text&gt;&lt;/svg&gt;" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== PRELOADER ===================== -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <svg class="preloader__monogram" viewBox="0 0 200 200" aria-hidden="true">
+      <circle class="draw" cx="100" cy="100" r="78" fill="none" stroke="var(--sage)" stroke-width="1" />
+      <text x="100" y="118" text-anchor="middle" class="preloader__initials">A&amp;V</text>
+    </svg>
+    <p class="preloader__text">Preparant l'amor…</p>
+  </div>
+
+  <!-- ===================== PETALS LAYER ===================== -->
+  <div class="petals" id="petals" aria-hidden="true"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand">A<span>&amp;</span>V</a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#compte-enrere">Compte enrere</a>
+      <a href="#invitacio">La invitació</a>
+      <a href="#nuvis">Els nuvis</a>
+      <a href="#dia">El gran dia</a>
+      <a href="#lloc">El lloc</a>
+      <a href="#vestimenta">Vestimenta</a>
+      <a href="#rsvp">Confirmació</a>
+      <a href="#musica">Música</a>
+      <a href="#regals">Regals</a>
+      <a href="#faq">Dubtes</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="music-toggle" id="musicToggle" aria-label="Activa la música" title="Música ambiental">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </button>
+      <button class="nav__burger" id="navBurger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <!-- watercolor botanical corners -->
+    <svg class="hero__botanic hero__botanic--tl" viewBox="0 0 220 220" aria-hidden="true">
+      <g fill="none" stroke="var(--olive)" stroke-width="1.1" stroke-linecap="round">
+        <path d="M10 210 C 60 150, 80 90, 95 20"/>
+        <path d="M95 60 C 70 55, 50 65, 38 85" /><path d="M95 60 C 120 58, 140 70, 150 92"/>
+        <path d="M80 100 C 55 96, 38 106, 28 126"/><path d="M80 100 C 105 99, 122 110, 132 130"/>
+        <path d="M66 140 C 44 137, 30 147, 22 165"/><path d="M66 140 C 88 139, 102 150, 110 168"/>
+      </g>
+      <g fill="var(--moss)" opacity="0.55">
+        <ellipse cx="40" cy="86" rx="9" ry="4" transform="rotate(35 40 86)"/>
+        <ellipse cx="150" cy="92" rx="9" ry="4" transform="rotate(-35 150 92)"/>
+        <ellipse cx="28" cy="126" rx="9" ry="4" transform="rotate(35 28 126)"/>
+        <ellipse cx="132" cy="130" rx="9" ry="4" transform="rotate(-35 132 130)"/>
+      </g>
+    </svg>
+    <svg class="hero__botanic hero__botanic--br" viewBox="0 0 220 220" aria-hidden="true">
+      <g fill="none" stroke="var(--olive)" stroke-width="1.1" stroke-linecap="round">
+        <path d="M10 210 C 60 150, 80 90, 95 20"/>
+        <path d="M95 60 C 70 55, 50 65, 38 85" /><path d="M95 60 C 120 58, 140 70, 150 92"/>
+        <path d="M80 100 C 55 96, 38 106, 28 126"/><path d="M80 100 C 105 99, 122 110, 132 130"/>
+      </g>
+      <g fill="var(--moss)" opacity="0.55">
+        <ellipse cx="40" cy="86" rx="9" ry="4" transform="rotate(35 40 86)"/>
+        <ellipse cx="150" cy="92" rx="9" ry="4" transform="rotate(-35 150 92)"/>
+      </g>
+    </svg>
+
+    <div class="hero__inner">
+      <p class="hero__eyebrow reveal">Ens casem</p>
+      <h1 class="hero__names">
+        <span class="reveal" style="--d:.1s">Andreu</span>
+        <span class="hero__amp reveal" style="--d:.25s">&amp;</span>
+        <span class="reveal" style="--d:.4s">Ventu</span>
+      </h1>
+      <div class="hero__rule reveal" style="--d:.55s"><span></span>✦<span></span></div>
+      <p class="hero__meta reveal" style="--d:.7s">Dissabte · 27 d'agost · Can Cugulada</p>
+      <a href="#rsvp" class="btn hero__cta reveal" style="--d:.85s">Confirma la teva assistència</a>
+    </div>
+
+    <a href="#compte-enrere" class="hero__scroll" aria-label="Desplaça't avall">
+      <span>Descobreix-ho</span>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- ===================== COUNTDOWN ===================== -->
+  <section class="countdown section" id="compte-enrere">
+    <div class="container">
+      <p class="section__kicker reveal">El moment s'acosta</p>
+      <h2 class="section__title reveal">Compte enrere</h2>
+      <div class="countdown__grid reveal" id="countdown" style="--d:.15s">
+        <div class="countdown__unit"><span class="countdown__num" id="cd-days">--</span><span class="countdown__label">Dies</span></div>
+        <div class="countdown__sep">·</div>
+        <div class="countdown__unit"><span class="countdown__num" id="cd-hours">--</span><span class="countdown__label">Hores</span></div>
+        <div class="countdown__sep">·</div>
+        <div class="countdown__unit"><span class="countdown__num" id="cd-mins">--</span><span class="countdown__label">Minuts</span></div>
+        <div class="countdown__sep">·</div>
+        <div class="countdown__unit"><span class="countdown__num" id="cd-secs">--</span><span class="countdown__label">Segons</span></div>
+      </div>
+      <p class="countdown__caption reveal" id="countdownCaption" style="--d:.3s">…fins que ens diguem «sí, vull».</p>
+    </div>
+  </section>
+
+  <!-- ===================== INVITATION ===================== -->
+  <section class="invite section" id="invitacio">
+    <div class="container container--narrow">
+      <svg class="invite__sprig reveal" viewBox="0 0 120 40" aria-hidden="true">
+        <g fill="none" stroke="var(--olive)" stroke-width="1" stroke-linecap="round">
+          <path d="M5 20 H115"/>
+          <path d="M48 20 c -6 -10 -16 -12 -22 -10"/><path d="M72 20 c 6 -10 16 -12 22 -10"/>
+          <path d="M48 20 c -6 10 -16 12 -22 10"/><path d="M72 20 c 6 10 16 12 22 10"/>
+        </g>
+        <circle cx="60" cy="20" r="3.5" fill="var(--moss)"/>
+      </svg>
+      <p class="section__kicker reveal">Amb tota la il·lusió del món</p>
+      <h2 class="section__title reveal">La invitació</h2>
+      <p class="invite__lead reveal" style="--d:.15s">
+        Estem encantats de convidar-vos al nostre casament! Després de tant
+        de camí junts, hem decidit fer-ho oficial envoltats de les persones
+        que més estimem.
+      </p>
+      <p class="invite__lead reveal" style="--d:.25s">
+        Ens encantaria que ens acompanyéssiu en aquest dia tan especial, ple
+        de rialles, abraçades, bon menjar i ball fins que surti el sol.
+        <strong>No podem esperar a celebrar-ho amb vosaltres!</strong>
+      </p>
+      <p class="invite__sign reveal" style="--d:.35s">Amb amor,<br><span>Andreu &amp; Ventu</span></p>
+    </div>
+  </section>
+
+  <!-- ===================== THE COUPLE ===================== -->
+  <section class="couple section section--tint" id="nuvis">
+    <div class="container">
+      <p class="section__kicker reveal">Els protagonistes</p>
+      <h2 class="section__title reveal">Els nuvis</h2>
+      <div class="couple__grid">
+        <article class="couple__card card reveal">
+          <div class="couple__portrait" aria-hidden="true">
+            <svg viewBox="0 0 120 120"><circle cx="60" cy="48" r="26" fill="none" stroke="var(--sage)" stroke-width="1.2"/><path d="M24 104 C 24 78, 96 78, 96 104" fill="none" stroke="var(--sage)" stroke-width="1.2"/></svg>
+            <span class="couple__initial">A</span>
+          </div>
+          <h3>Andreu</h3>
+          <p class="couple__role">Un dels nuvis</p>
+          <p>Somrient, generós i incapaç de dir que no a un bon vermut. El primer a la pista de ball i l'últim a marxar de qualsevol festa.</p>
+        </article>
+
+        <div class="couple__heart reveal" style="--d:.15s" aria-hidden="true">
+          <svg viewBox="0 0 60 60"><path d="M30 50 C 6 32, 8 12, 24 12 C 30 12, 30 18, 30 18 C 30 18, 30 12, 36 12 C 52 12, 54 32, 30 50 Z" fill="none" stroke="var(--forest)" stroke-width="1.2"/></svg>
+        </div>
+
+        <article class="couple__card card reveal" style="--d:.3s">
+          <div class="couple__portrait" aria-hidden="true">
+            <svg viewBox="0 0 120 120"><circle cx="60" cy="48" r="26" fill="none" stroke="var(--sage)" stroke-width="1.2"/><path d="M24 104 C 24 78, 96 78, 96 104" fill="none" stroke="var(--sage)" stroke-width="1.2"/></svg>
+            <span class="couple__initial">V</span>
+          </div>
+          <h3>Ventu</h3>
+          <p class="couple__role">L'altre nuvi</p>
+          <p>Tranquil, atent i amb un sentit de l'humor que enamora. El que recorda l'aniversari de tothom i sempre té la història perfecta a punt.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE BIG DAY (TIMELINE) ===================== -->
+  <section class="timeline section" id="dia">
+    <div class="container">
+      <p class="section__kicker reveal">Hora a hora</p>
+      <h2 class="section__title reveal">El gran dia</h2>
+      <p class="section__intro reveal" style="--d:.1s">Aquest és el pla per al 27 d'agost. Veniu amb ganes de gaudir!</p>
+
+      <ol class="timeline__list">
+        <li class="timeline__item reveal">
+          <div class="timeline__time">18:00</div>
+          <div class="timeline__icon" data-icon="church"></div>
+          <div class="timeline__body card">
+            <h3>Arribada</h3>
+            <p>Els convidats arriben al recinte. Us rebrem amb un somriure (i alguna cosa fresca per beure).</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal">
+          <div class="timeline__time">19:00</div>
+          <div class="timeline__icon" data-icon="rings"></div>
+          <div class="timeline__body card">
+            <h3>Cerimònia</h3>
+            <p>Comença la cerimònia. Prepareu els mocadors: hi haurà llàgrimes (de les boniques).</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal">
+          <div class="timeline__time">20:00</div>
+          <div class="timeline__icon" data-icon="champagne"></div>
+          <div class="timeline__body card">
+            <h3>Còctel</h3>
+            <p>Hora del còctel. Bombolles, aperitius i les primeres abraçades de la nit.</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal">
+          <div class="timeline__time">21:00</div>
+          <div class="timeline__icon" data-icon="dinner"></div>
+          <div class="timeline__body card">
+            <h3>Sopar</h3>
+            <p>Se serveix el sopar. Cuina mediterrània, brindis i discursos que recordarem anys.</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal">
+          <div class="timeline__time">23:00</div>
+          <div class="timeline__icon" data-icon="disco"></div>
+          <div class="timeline__body card">
+            <h3>Festa</h3>
+            <p>Comença la música i el ball. Calçat còmode recomanat: això va per llarg.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== VENUE ===================== -->
+  <section class="venue section section--tint" id="lloc">
+    <div class="container">
+      <p class="section__kicker reveal">On serà tot</p>
+      <h2 class="section__title reveal">El lloc · Can Cugulada</h2>
+      <div class="venue__grid">
+        <div class="venue__text reveal">
+          <p>Una masia mediterrània envoltada de natura, oliveres i pedra antiga. El marc perfecte per a un dia inoblidable, amb racons preciosos esperant les vostres millors fotos.</p>
+          <ul class="venue__facts">
+            <li><span>Lloc</span>Can Cugulada</li>
+            <li><span>Data</span>Dissabte, 27 d'agost</li>
+            <li><span>Hora</span>A partir de les 18:00</li>
+          </ul>
+          <a class="btn btn--ghost" id="mapsLink" href="https://www.google.com/maps/search/?api=1&amp;query=Can+Cugulada" target="_blank" rel="noopener">Com arribar-hi</a>
+        </div>
+        <div class="venue__map reveal" style="--d:.15s">
+          <iframe
+            title="Mapa de Can Cugulada"
+            src="https://www.google.com/maps?q=Can+Cugulada&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DRESS CODE ===================== -->
+  <section class="dress section" id="vestimenta">
+    <div class="container container--narrow">
+      <p class="section__kicker reveal">Per anar guapíssims</p>
+      <h2 class="section__title reveal">Codi de vestimenta</h2>
+      <p class="section__intro reveal" style="--d:.1s">Elegant i mediterrani. Penseu en tons naturals, teixits frescos i molta gràcia. Eviteu el blanc (aquest dia és per als nuvis 😉).</p>
+      <div class="dress__palette reveal" style="--d:.2s" aria-label="Paleta de colors suggerida">
+        <span style="--c:#6F8067">Sàlvia</span>
+        <span style="--c:#D8CCBC">Beix</span>
+        <span style="--c:#BCC9D9">Blau aigua</span>
+        <span style="--c:#C7C2D4">Lavanda</span>
+        <span style="--c:#51604C">Verd bosc</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RSVP ===================== -->
+  <section class="rsvp section section--tint" id="rsvp">
+    <div class="container container--narrow">
+      <p class="section__kicker reveal">Us esperem!</p>
+      <h2 class="section__title reveal">Confirma la teva assistència</h2>
+      <p class="section__intro reveal" style="--d:.1s">Si us plau, confirmeu abans de l'1 d'agost. En enviar el formulari s'obrirà el vostre correu amb tot a punt.</p>
+
+      <form class="rsvp__form card reveal" id="rsvpForm" style="--d:.2s" novalidate>
+        <div class="field">
+          <label for="r-name">Nom i cognoms</label>
+          <input id="r-name" name="name" type="text" required placeholder="El teu nom" />
+        </div>
+
+        <fieldset class="field">
+          <legend>Vindràs?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="attending" value="Sí, hi seré!" checked /><span>Sí, hi seré!</span></label>
+            <label class="choice"><input type="radio" name="attending" value="No podré assistir" /><span>No podré venir 😢</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="r-guests">Nombre d'acompanyants (inclòs tu)</label>
+          <input id="r-guests" name="guests" type="number" min="1" max="10" value="1" />
+        </div>
+
+        <div class="field">
+          <label for="r-menu">Menú</label>
+          <select id="r-menu" name="menu">
+            <option>Normal</option>
+            <option>Vegetarià</option>
+            <option>Vegà</option>
+            <option>Sense gluten</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="r-allergies">Al·lèrgies o intoleràncies</label>
+          <input id="r-allergies" name="allergies" type="text" placeholder="Cap / especifica" />
+        </div>
+
+        <div class="field">
+          <label for="r-song">Quina cançó no pot faltar a la festa?</label>
+          <input id="r-song" name="song" type="text" placeholder="La teva cançó imprescindible" />
+        </div>
+
+        <div class="field">
+          <label for="r-message">Un missatge per als nuvis</label>
+          <textarea id="r-message" name="message" rows="3" placeholder="Escriu-nos alguna cosa boniqueta…"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Enviar confirmació</button>
+        <p class="rsvp__note">El correu s'enviarà a <strong>andreu.ventu.casament@example.com</strong></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== MUSIC ===================== -->
+  <section class="music section" id="musica">
+    <div class="container container--narrow">
+      <p class="section__kicker reveal">La banda sonora</p>
+      <h2 class="section__title reveal">Música per a la festa</h2>
+      <p class="section__intro reveal" style="--d:.1s">Hem preparat una llista per anar escalfant motors. Afegiu les vostres peticions al formulari de dalt i les escoltarem!</p>
+      <div class="music__player reveal card" style="--d:.2s">
+        <iframe
+          title="Llista de reproducció del casament"
+          style="border-radius:14px"
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DXbYM3nMM0oPk?utm_source=generator&theme=0"
+          width="100%" height="352" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GIFTS ===================== -->
+  <section class="gifts section section--tint" id="regals">
+    <div class="container container--narrow">
+      <p class="section__kicker reveal">El detall</p>
+      <h2 class="section__title reveal">Llista de noces</h2>
+      <p class="section__intro reveal" style="--d:.1s">El millor regal és la vostra presència. Però si voleu contribuir a la nostra lluna de mel, ho agraïm amb tot el cor.</p>
+      <div class="gifts__card card reveal" style="--d:.2s">
+        <svg class="gifts__icon" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="var(--sage)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="18" width="32" height="22" rx="3"/><path d="M6 18h36M24 18v22"/><path d="M24 18c-6-2-12-6-9-10s9 4 9 10c0-6 6-14 9-10s-3 8-9 10z"/></g></svg>
+        <p class="gifts__label">Compte per a la lluna de mel</p>
+        <p class="gifts__iban" id="iban">ES00 0000 0000 0000 0000 0000</p>
+        <button class="btn btn--ghost" id="copyIban" type="button">Copiar IBAN</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="faq section" id="faq">
+    <div class="container container--narrow">
+      <p class="section__kicker reveal">Tot el que necessites saber</p>
+      <h2 class="section__title reveal">Preguntes freqüents</h2>
+      <div class="faq__list reveal" style="--d:.1s">
+        <details class="faq__item">
+          <summary>A quina hora he d'arribar?</summary>
+          <p>La recepció comença a les 18:00 i la cerimònia a les 19:00. Veniu amb una mica de marge per trobar aparcament i saludar.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Hi puc portar acompanyant?</summary>
+          <p>Indiqueu el nombre d'acompanyants al formulari de confirmació i ho tindrem tot a punt.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Hi haurà aparcament?</summary>
+          <p>Sí, Can Cugulada disposa d'aparcament. També us recomanem compartir cotxe amb altres convidats.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Els nens hi són benvinguts?</summary>
+          <p>I tant! Tindrem un raconet pensat per als més petits. Indiqueu-ho a la confirmació.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Què passa si tinc al·lèrgies?</summary>
+          <p>Cap problema. Especifiqueu-les al formulari i la cuina us preparà una opció a mida.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Fins a quina hora dura la festa?</summary>
+          <p>Fins que el cos aguanti. La música comença a les 23:00 i no té pressa per acabar.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GUESTBOOK ===================== -->
+  <section class="guestbook section section--tint" id="llibre">
+    <div class="container container--narrow">
+      <p class="section__kicker reveal">Deixa la teva empremta</p>
+      <h2 class="section__title reveal">Llibre de visites</h2>
+      <p class="section__intro reveal" style="--d:.1s">Deixa un desig, un consell o una broma per als nuvis. Es guarda al teu navegador per a aquest dia tan especial.</p>
+      <form class="guestbook__form reveal" id="guestbookForm" style="--d:.15s">
+        <input id="g-name" type="text" placeholder="El teu nom" maxlength="40" required />
+        <input id="g-msg" type="text" placeholder="El teu missatge…" maxlength="160" required />
+        <button class="btn" type="submit">Signar</button>
+      </form>
+      <ul class="guestbook__wall" id="guestbookWall"></ul>
+    </div>
+  </section>
+
+  <!-- ===================== CLOSING ===================== -->
+  <section class="closing section">
+    <div class="container container--narrow">
+      <svg class="closing__rings reveal" viewBox="0 0 90 60" aria-hidden="true">
+        <circle cx="35" cy="32" r="18" fill="none" stroke="var(--forest)" stroke-width="1.3"/>
+        <circle cx="55" cy="32" r="18" fill="none" stroke="var(--sage)" stroke-width="1.3"/>
+        <path d="M30 10 l5 8 l5 -8 z" fill="var(--moss)"/>
+      </svg>
+      <h2 class="closing__script reveal" style="--d:.1s">Us hi esperem!</h2>
+      <p class="closing__text reveal" style="--d:.2s">No podem esperar a celebrar-ho amb vosaltres. Gràcies per formar part de la nostra història.</p>
+      <p class="closing__hashtag reveal" style="--d:.3s">#AndreuiVentu2026</p>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer__monogram">A<span>&amp;</span>V</div>
+    <p>Andreu &amp; Ventu · 27 d'agost · Can Cugulada</p>
+    <p class="footer__small">Fet amb estima ✦ <button class="footer__egg" id="confettiBtn" type="button">amb una mica de màgia</button></p>
+  </footer>
+
+  <!-- back to top -->
+  <button class="to-top" id="toTop" aria-label="Torna a dalt" title="Torna a dalt">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ambient audio (silent until user enables) -->
+  <audio id="ambientAudio" loop preload="none">
+    <source src="https://upload.wikimedia.org/wikipedia/commons/2/27/Clair_de_Lune_-_Wikipedia.ogg" type="audio/ogg" />
+  </audio>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
