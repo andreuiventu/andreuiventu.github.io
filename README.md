@@ -40,7 +40,7 @@ Hi ha un workflow a `.github/workflows/deploy.yml` que ho desplega automàticame
 2. A GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 3. Cada `push` a `main` torna a publicar la web.
 
-La web quedarà a: `https://<usuari>.github.io/fake_wedding_sekta/`
+La web quedarà a: `https://andreuiventu.github.io/`
 
 > Alternativa sense Actions: **Settings → Pages → Source: Deploy from a branch → `main` / `(root)`**.
 
