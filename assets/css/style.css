@@ -100,6 +100,9 @@ section[hidden]{display:none!important}
 .btn:hover{background:var(--forest);transform:translateY(-2px);box-shadow:0 16px 34px -18px rgba(81,96,76,.8)}
 .btn--ghost{background:transparent;color:var(--forest);border:1px solid var(--olive);box-shadow:none}
 .btn--ghost:hover{background:var(--sage);color:var(--ivory);border-color:var(--sage)}
+.btn--spotify{display:inline-flex;align-items:center;gap:.6em;background:#1DB954;box-shadow:0 10px 26px -16px rgba(29,185,84,.9)}
+.btn--spotify:hover{background:#1AA34A}
+.music__cta{text-align:center;margin-top:1.6rem}
 
 /* =====================================================================
    PRELOADER
