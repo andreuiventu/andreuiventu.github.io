@@ -2,7 +2,7 @@
 
 Una pàgina web de casament *over-the-top*, en català, amb estètica **mediterrània editorial** (sàlvia, oliva, ivori; tipografies Cormorant Garamond i Great Vibes). Estàtica al 100%, pensada per allotjar-se gratis a **GitHub Pages**.
 
-**Nuvis:** Andreu & Ventu · **Data:** 27 d'agost · **Lloc:** Can Cugulada
+**Nuvis:** Andreu & Ventu · **Data:** 28 d'agost · **Lloc:** Can Cugulada
 
 ## Què inclou
 
@@ -25,7 +25,7 @@ Una pàgina web de casament *over-the-top*, en català, amb estètica **mediterr
 Edita aquests valors a `assets/js/script.js`:
 
 ```js
-const WEDDING    = new Date("2026-08-27T19:00:00+02:00"); // data i hora
+const WEDDING    = new Date("2026-08-28T19:00:00+02:00"); // data i hora
 const RSVP_EMAIL = "andreu.ventu.casament@example.com";   // correu de confirmacions
 const IBAN       = "ES00 0000 0000 0000 0000 0000";       // IBAN regal
 ```

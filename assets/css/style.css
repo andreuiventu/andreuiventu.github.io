@@ -35,7 +35,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
 body{
   font-family:var(--body);
   color:var(--ink);
@@ -65,10 +65,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;color:var(--f
 .section{padding:clamp(64px,9vw,128px) 0;position:relative}
 .section--tint{background:linear-gradient(var(--offwhite),#f3f0ea)}
 
-/* view router: one chapter at a time, soft fade between */
-section[data-view]{animation:viewIn .55s var(--ease)}
+/* one continuous page — per-element .reveal handles entrance animation */
 section[hidden]{display:none!important}
-@keyframes viewIn{from{opacity:0}to{opacity:1}}
 
 /* blurred watercolor backgrounds for atmosphere */
 .couple,.venue{overflow:hidden}

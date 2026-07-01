@@ -9,8 +9,8 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---- CONFIG -------------------------------------------------------- */
-  // Wedding date: 27 August 2026, 19:00 (ceremony)
-  const WEDDING = new Date("2026-08-27T19:00:00+02:00");
+  // Wedding date: 28 August 2026, 19:00 (ceremony)
+  const WEDDING = new Date("2026-08-28T19:00:00+02:00");
   const RSVP_EMAIL = "andreu.ventu.casament@example.com"; // ← change to the real address
   const IBAN = "ES00 0000 0000 0000 0000 0000";           // ← change to the real IBAN
 
@@ -129,62 +129,56 @@
   })();
 
   /* =====================================================================
-     VIEW ROUTER — splits the long page into navigable "chapters"
+     ONE-PAGE NAV — smooth scroll between sections, highlight while scrolling
      ===================================================================== */
-  (function router() {
+  (function onepage() {
     const sections = $$("section[data-view]");
     if (!sections.length) return;
     const navAs = $$("#navLinks a[data-view]");
-    const VIEWS = [...new Set(sections.map(s => s.dataset.view))];
-    const nav = $("#nav");
 
-    const viewOf = (id) => {
+    // First section belonging to each view — the scroll target for its nav link.
+    const firstOfView = {};
+    sections.forEach(s => { if (!firstOfView[s.dataset.view]) firstOfView[s.dataset.view] = s; });
+
+    const NAV_OFFSET = 78; // fixed header height
+
+    // Resolve any #hash link to the element we should scroll to.
+    const targetFor = (id) => {
+      if (!id) return null;
       const el = document.getElementById(id);
-      const sec = el && el.closest("section[data-view]");
-      return sec ? sec.dataset.view : (id === "hero" || id === "inici" ? "inici" : null);
+      if (el) return el;
+      return firstOfView[id] || null; // hash may be a view name (e.g. #inici)
     };
 
-    function show(view, scrollId) {
-      if (!VIEWS.includes(view)) view = VIEWS[0];
-      sections.forEach(s => {
-        const on = s.dataset.view === view;
-        s.hidden = !on;
-        if (on) s.querySelectorAll(".reveal").forEach(el => el.classList.add("is-in"));
-      });
-      navAs.forEach(a => a.classList.toggle("is-active", a.dataset.view === view));
-      requestAnimationFrame(() => {
-        const target = scrollId && document.getElementById(scrollId);
-        if (target && !target.matches("section[data-view]")) {
-          const y = target.getBoundingClientRect().top + window.scrollY - 78;
-          window.scrollTo({ top: y, behavior: reduceMotion ? "auto" : "smooth" });
-        } else {
-          window.scrollTo({ top: 0, behavior: "auto" });
-        }
-      });
-    }
-    window.AVshowView = show;
+    const scrollToEl = (el) => {
+      const y = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+      window.scrollTo({ top: Math.max(0, y), behavior: reduceMotion ? "auto" : "smooth" });
+    };
 
+    // Smooth-scroll for every in-page anchor (nav links, hero CTA, arrow…).
     document.addEventListener("click", (e) => {
       const a = e.target.closest('a[href^="#"]');
       if (!a) return;
       const id = a.getAttribute("href").slice(1);
-      if (!id) return;
-      const view = a.hasAttribute("data-view") ? a.dataset.view : viewOf(id);
-      if (!view) return;
+      const target = targetFor(id);
+      if (!target) return;
       e.preventDefault();
-      show(view, a.hasAttribute("data-view") ? null : id);
+      scrollToEl(target);
       history.replaceState(null, "", "#" + id);
     });
 
-    // initial view from hash (accepts a section id OR a view name)
-    const initId = location.hash.slice(1);
-    let initView = "inici", scrollId = null;
-    if (initId) {
-      const el = document.getElementById(initId);
-      if (el) { initView = viewOf(initId) || "inici"; if (!el.matches("section[data-view]")) scrollId = initId; }
-      else if (VIEWS.includes(initId)) { initView = initId; }
+    // Highlight the nav link for whichever view is currently in view.
+    const setActive = (view) => navAs.forEach(a => a.classList.toggle("is-active", a.dataset.view === view));
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) setActive(e.target.dataset.view); });
+      }, { rootMargin: `-${NAV_OFFSET + 1}px 0px -55% 0px`, threshold: 0 });
+      sections.forEach(s => io.observe(s));
     }
-    show(initView, scrollId);
+
+    // Honour a deep link on load (e.g. opening …/#lloc).
+    const initTarget = targetFor(location.hash.slice(1));
+    if (initTarget) requestAnimationFrame(() => scrollToEl(initTarget));
   })();
 
   /* =====================================================================
@@ -345,9 +339,9 @@
       title: "Casament d'Andreu & Ventu 💍",
       location: "Can Cugulada",
       details: "Ens casem! Veniu a celebrar-ho amb nosaltres a Can Cugulada. Recepció a les 18:00 i cerimònia a les 19:00.",
-      // 27 Aug 2026, 18:00–02:00 CEST (UTC+2) → UTC
-      startUTC: "20260827T160000Z",
-      endUTC: "20260828T000000Z"
+      // 28 Aug 2026, 18:00–02:00 CEST (UTC+2) → UTC
+      startUTC: "20260828T160000Z",
+      endUTC: "20260829T000000Z"
     };
     if (gcal) {
       const p = new URLSearchParams({
